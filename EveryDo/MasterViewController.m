@@ -23,9 +23,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
     
     ToDo *todo1 = [[ToDo alloc]initWithTitle:@"Do dishes" todoDescription:@"Clean dishes, so kitchen is not digusting" priority:1 isComplete:NO];
     ToDo *todo2 = [[ToDo alloc]initWithTitle:@"Vacuuming" todoDescription:@"Get rid of dust to make socks cleaner" priority:2 isComplete:NO];
@@ -40,6 +37,7 @@
 
 
 - (void)viewWillAppear:(BOOL)animated {
+
 }
 
 
@@ -49,17 +47,6 @@
 }
 
 
-- (void)insertNewObject:(id)sender {
-    
-}
-//    if (!self.objects) {
-//        self.objects = [[NSMutableArray alloc] init];
-//    }
-////    [self.objects insertObject:[NSDate date] atIndex:0];
-////    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-////    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//}
-
 
 #pragma mark - Segues
 
@@ -67,9 +54,13 @@
     if ([[segue identifier] isEqualToString:@"DetailViewController"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         ToDo *toDo = self.toDos[indexPath.row];
-        
-        DetailViewController *dvController = (DetailViewController *)[[segue destinationViewController] navigationController];
+        DetailViewController *dvController = segue.destinationViewController;
             [dvController setDetailItem:toDo];
+    }
+    if ([[segue identifier] isEqualToString:@"AddNewToDoViewController"]) {
+        UINavigationController *nav = segue.destinationViewController;
+        AddToDoViewController *atdViewController = nav.viewControllers[0];
+        atdViewController.delegate = self;
     }
 }
 
@@ -109,6 +100,11 @@
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
+}
+
+- (void)addToDoObject:(ToDo *)toDo {
+    [self.toDos insertObject:toDo atIndex:0];
+    [self.tableView reloadData];
 }
 
 
