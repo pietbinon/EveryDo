@@ -7,8 +7,15 @@
 //
 
 #import "DetailViewController.h"
+#import "ToDo.h"
 
 @interface DetailViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priorityLabel;
+
+@property (strong, nonatomic) ToDo *detailTodo;
 
 @end
 
@@ -19,8 +26,11 @@
 - (void)setDetailItem:(id)newDetailItem {
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
-            
-        // Update the view.
+        
+        self.titleLabel.text = self.detailTodo.title;
+        self.descriptionLabel.text = self.detailTodo.todoDescription;
+        self.priorityLabel.text = @(self.detailTodo.priority).stringValue;
+        
         [self configureView];
     }
 }

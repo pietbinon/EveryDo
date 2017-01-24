@@ -8,10 +8,13 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "ToDoTableViewCell.h"
+#import "ToDo.h"
 
 @interface MasterViewController ()
 
-@property NSMutableArray *objects;
+@property (nonatomic) NSMutableArray *toDos;
+
 @end
 
 @implementation MasterViewController
@@ -23,6 +26,16 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    ToDo *todo1 = [[ToDo alloc]initWithTitle:@"Do dishes" todoDescription:@"Clean dishes, so kitchen is not digusting" priority:1 isComplete:NO];
+    ToDo *todo2 = [[ToDo alloc]initWithTitle:@"Vacuuming" todoDescription:@"Get rid of dust to make socks cleaner" priority:2 isComplete:NO];
+    ToDo *todo3 = [[ToDo alloc]initWithTitle:@"Buy groceries" todoDescription:@"Food is necessary for survival" priority:4 isComplete:NO];
+    ToDo *todo4 = [[ToDo alloc]initWithTitle:@"Clean bathroom" todoDescription:@"Make home visitable" priority:3 isComplete:NO];
+    
+    NSArray *tempArray = @[todo1, todo2, todo3, todo4];
+    self.toDos = [[NSMutableArray alloc]initWithArray:tempArray];
+    [self.tableView reloadData];
+    
 }
 
 
@@ -37,23 +50,26 @@
 
 
 - (void)insertNewObject:(id)sender {
-    if (!self.objects) {
-        self.objects = [[NSMutableArray alloc] init];
-    }
-    [self.objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
 }
+//    if (!self.objects) {
+//        self.objects = [[NSMutableArray alloc] init];
+//    }
+////    [self.objects insertObject:[NSDate date] atIndex:0];
+////    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+////    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+//}
 
 
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+    if ([[segue identifier] isEqualToString:@"DetailViewController"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = self.objects[indexPath.row];
-        DetailViewController *controller = (DetailViewController *)[segue destinationViewController];
-        [controller setDetailItem:object];
+        ToDo *toDo = self.toDos[indexPath.row];
+        
+        DetailViewController *dvController = (DetailViewController *)[[segue destinationViewController] navigationController];
+            [dvController setDetailItem:toDo];
     }
 }
 
@@ -66,15 +82,16 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.objects.count;
+    return self.toDos.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    ToDoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSDate *object = self.objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    ToDo *toDo = self.toDos[indexPath.row];
+    [cell displayTodoItems:toDo];
+    
     return cell;
 }
 
@@ -87,7 +104,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.objects removeObjectAtIndex:indexPath.row];
+        [self.toDos removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
