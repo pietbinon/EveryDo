@@ -24,6 +24,7 @@
 
 @implementation MasterViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -90,7 +91,7 @@
     
     ToDoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     ToDo *toDo = self.toDos[indexPath.row];
-    [cell displayTodoItems:toDo];
+    cell.todo = toDo;
     return cell;
 }
 

@@ -49,7 +49,7 @@
 
 - (void) configureView {
     
-    // Update the user interface for the detail item.
+    // Update user interface with the detail item.
     if (self.detailItem) {
         
         self.titleLabel.text = self.detailTodo.title;

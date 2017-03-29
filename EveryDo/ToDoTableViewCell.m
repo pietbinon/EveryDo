@@ -10,13 +10,31 @@
 #import "ToDo.h"
 
 
-
+@interface ToDoTableViewCell()
+@property (weak, nonatomic) IBOutlet UILabel *toDoTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *toDoSynopsis;
+@property (weak, nonatomic) IBOutlet UILabel *priorityLabel;
+@property (nonatomic) UISwipeGestureRecognizer *swipe;
+@end
 @implementation ToDoTableViewCell
 
 - (void)awakeFromNib {
     
     [super awakeFromNib];
-    // Initialization code
+    self.swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(wasSwipped:)];
+    [self.swipe setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self addGestureRecognizer:self.swipe];
+    
+}
+
+- (void)setTodo:(ToDo *)todo {
+    _todo = todo;
+    [self displayTodoItems];
+}
+
+- (void)wasSwipped:(UISwipeGestureRecognizer *)sender {
+    self.todo.completed = !self.todo.completed;
+    [self displayTodoItems];
 }
 
 
@@ -28,11 +46,19 @@
 }
 
 
-- (void)displayTodoItems: (ToDo *) toDo {
+- (void)displayTodoItems {
     
-    self.toDoTitleLabel.text = toDo.title;
-    self.toDoSynopsis.text = toDo.todoDescription;
-    self.priorityLabel.text = @(toDo.priority).stringValue;
+    NSNumber *completed = self.todo.completed ? @1 : @0;
+    
+    NSDictionary<NSString *,id> *titleAttributes = @{NSStrikethroughStyleAttributeName: completed };
+    NSMutableAttributedString *attributedTitle = [[NSMutableAttributedString alloc] initWithString:self.todo.title attributes:titleAttributes];
+    self.toDoTitleLabel.attributedText = attributedTitle;
+    self.toDoSynopsis.text = self.todo.todoDescription;
+    self.priorityLabel.text = @(self.todo.priority).stringValue;
+}
+
+- (void)dealloc {
+    [self removeGestureRecognizer:self.swipe];
 }
 
 @end

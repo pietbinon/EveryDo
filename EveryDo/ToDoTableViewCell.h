@@ -14,10 +14,6 @@
 
 @interface ToDoTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *toDoTitleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *toDoSynopsis;
-@property (weak, nonatomic) IBOutlet UILabel *priorityLabel;
-
--(void) displayTodoItems: (ToDo *)todo;
+@property (nonatomic)ToDo *todo;
 
 @end
