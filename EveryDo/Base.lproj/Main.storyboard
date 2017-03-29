@@ -153,7 +153,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter todo title!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eSI-bi-Kzd">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eSI-bi-Kzd">
                                 <rect key="frame" x="116" y="104" width="249" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="xAy-kq-AoR"/>
@@ -162,7 +162,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter description!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rpI-0Z-9k3">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rpI-0Z-9k3">
                                 <rect key="frame" x="116" y="184" width="249" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="xpp-4l-DAn"/>
@@ -191,7 +191,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Set priority!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q2s-kn-Wgo">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q2s-kn-Wgo">
                                 <rect key="frame" x="116" y="414" width="243" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="243" id="kAl-aE-pwd"/>
@@ -264,7 +264,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oV8-ng-dbf">
-                                            <rect key="frame" x="64" y="8" width="303" height="32"/>
+                                            <rect key="frame" x="75" y="8" width="292" height="32"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="32" id="Aw6-sv-gHg"/>
                                             </constraints>
@@ -272,7 +272,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbA-K3-pJr">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbA-K3-pJr">
                                             <rect key="frame" x="8" y="48" width="359" height="32"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="32" id="1iF-Rp-mhi"/>
@@ -309,7 +309,7 @@
                                         <constraint firstItem="kNd-2G-5f2" firstAttribute="trailing" secondItem="ztg-eS-Xot" secondAttribute="trailingMargin" id="Pu8-cL-s3N"/>
                                         <constraint firstItem="uI5-4N-6a2" firstAttribute="leading" secondItem="ztg-eS-Xot" secondAttribute="leadingMargin" id="UZI-p3-h68"/>
                                         <constraint firstItem="oV8-ng-dbf" firstAttribute="trailing" secondItem="ztg-eS-Xot" secondAttribute="trailingMargin" id="cov-wn-WvL"/>
-                                        <constraint firstItem="oV8-ng-dbf" firstAttribute="leading" secondItem="JZO-QJ-EXL" secondAttribute="trailing" constant="8" id="eG4-ln-CrY"/>
+                                        <constraint firstItem="oV8-ng-dbf" firstAttribute="leading" secondItem="JZO-QJ-EXL" secondAttribute="trailing" constant="19" id="eG4-ln-CrY"/>
                                         <constraint firstItem="xbA-K3-pJr" firstAttribute="trailing" secondItem="ztg-eS-Xot" secondAttribute="trailingMargin" id="hJc-Dq-FZ4"/>
                                         <constraint firstItem="JZO-QJ-EXL" firstAttribute="leading" secondItem="ztg-eS-Xot" secondAttribute="leadingMargin" id="mrY-GD-ayg"/>
                                         <constraint firstItem="uI5-4N-6a2" firstAttribute="top" secondItem="xbA-K3-pJr" secondAttribute="bottom" constant="8" id="tLx-Vc-ygr"/>

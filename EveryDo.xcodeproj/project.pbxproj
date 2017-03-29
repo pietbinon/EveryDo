@@ -70,14 +70,14 @@
 		3C840C9B1E37AD9500EB1D78 /* EveryDo */ = {
 			isa = PBXGroup;
 			children = (
+				3C840CB61E37AE8F00EB1D78 /* ToDo.h */,
+				3C840CB71E37AE8F00EB1D78 /* ToDo.m */,
 				3C840CA21E37AD9500EB1D78 /* MasterViewController.h */,
 				3C840CA31E37AD9500EB1D78 /* MasterViewController.m */,
 				3C840CBF1E37DD2900EB1D78 /* AddToDoViewController.h */,
 				3C840CC01E37DD2900EB1D78 /* AddToDoViewController.m */,
 				3C840CA51E37AD9500EB1D78 /* DetailViewController.h */,
 				3C840CA61E37AD9500EB1D78 /* DetailViewController.m */,
-				3C840CB61E37AE8F00EB1D78 /* ToDo.h */,
-				3C840CB71E37AE8F00EB1D78 /* ToDo.m */,
 				3C840CBC1E37B49000EB1D78 /* ToDoTableViewCell.h */,
 				3C840CBD1E37B49000EB1D78 /* ToDoTableViewCell.m */,
 				3C840CA81E37AD9500EB1D78 /* Main.storyboard */,
