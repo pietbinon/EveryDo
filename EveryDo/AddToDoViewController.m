@@ -2,7 +2,7 @@
 //  AddToDoViewController.m
 //  EveryDo
 //
-//  Created by Pierre Binon on 2017-03-27.
+//  Created by Pierre Binon on 2017-01-24.
 //  Copyright © 2017 Pierre Binon. All rights reserved.
 //
 
@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *addPriority;
 
 @end
+
+
 
 
 
@@ -37,7 +39,7 @@
 }
 
 
-- (IBAction)doneButton:(UIBarButtonItem *)sender {
+- (IBAction) doneButton: (UIBarButtonItem *) sender {
     
     ToDo *toDo = [[ToDo alloc] initWithTitle: self.addTitle.text todoDescription: self.addDescription.text priority: [self.addPriority.text integerValue] isComplete: NO];
     [self.delegate addToDoObject: toDo];

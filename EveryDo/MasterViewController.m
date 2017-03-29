@@ -2,7 +2,7 @@
 //  MasterViewController.m
 //  EveryDo
 //
-//  Created by Pierre Binon on 2017-03-27.
+//  Created by Pierre Binon on 2017-01-24.
 //  Copyright © 2017 Pierre Binon. All rights reserved.
 //
 
@@ -37,17 +37,6 @@
     NSArray *tempArray = @[todo1, todo2, todo3];
     self.toDos = [[NSMutableArray alloc] initWithArray: tempArray];
     [self.tableView reloadData];
-}
-
-
-- (void)viewWillAppear:(BOOL)animated {
-
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
